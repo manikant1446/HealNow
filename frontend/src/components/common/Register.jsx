@@ -1,0 +1,113 @@
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Mail, Lock, User as UserIcon, HeartPulse, Stethoscope, ArrowRight } from 'lucide-react';
+import { useAuth } from '../../contexts/AuthContext';
+
+export default function Register() {
+  const [form, setForm] = useState({
+    name: '', email: '', password: '', role: 'patient',
+    specialty: '', hospital: '', qualifications: ''
+  });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { register } = useAuth();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+    try {
+      await register(form);
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Registration failed.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="auth-container animate-in">
+      <div className="auth-card">
+        <h1>Create Account</h1>
+        <p className="subtitle">Join the decentralized healthcare platform</p>
+
+        {error && <div className="error-message">{error}</div>}
+
+        <form onSubmit={handleSubmit}>
+          <div className="role-selector">
+            <div className={`role-option ${form.role === 'patient' ? 'active' : ''}`}
+              onClick={() => setForm({ ...form, role: 'patient' })}>
+              <HeartPulse size={24} color={form.role === 'patient' ? 'var(--accent-primary)' : 'var(--text-muted)'} />
+              <br /><span>Patient</span>
+            </div>
+            <div className={`role-option ${form.role === 'doctor' ? 'active' : ''}`}
+              onClick={() => setForm({ ...form, role: 'doctor' })}>
+              <Stethoscope size={24} color={form.role === 'doctor' ? 'var(--accent-primary)' : 'var(--text-muted)'} />
+              <br /><span>Doctor</span>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>Full Name</label>
+            <div className="input-icon-wrapper">
+              <UserIcon />
+              <input type="text" className="form-input" name="name" placeholder="John Doe"
+                value={form.name} onChange={handleChange} required />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>Email Address</label>
+            <div className="input-icon-wrapper">
+              <Mail />
+              <input type="email" className="form-input" name="email" placeholder="you@example.com"
+                value={form.email} onChange={handleChange} required />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>Password</label>
+            <div className="input-icon-wrapper">
+              <Lock />
+              <input type="password" className="form-input" name="password" placeholder="Min 6 characters"
+                value={form.password} onChange={handleChange} required minLength={6} />
+            </div>
+          </div>
+
+          {form.role === 'doctor' && (
+            <>
+              <div className="form-group">
+                <label>Specialty</label>
+                <select className="form-select" name="specialty" value={form.specialty} onChange={handleChange} required>
+                  <option value="">Select specialty</option>
+                  <option>Cardiology</option><option>Dermatology</option>
+                  <option>Neurology</option><option>Orthopedics</option>
+                  <option>Pediatrics</option><option>General</option>
+                  <option>Oncology</option><option>Psychiatry</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Hospital / Clinic</label>
+                <input type="text" className="form-input" name="hospital" placeholder="Hospital name"
+                  value={form.hospital} onChange={handleChange} />
+              </div>
+            </>
+          )}
+
+          <button type="submit" className="btn btn-primary btn-lg" disabled={loading}>
+            {loading ? 'Creating account...' : 'Create Account'}
+            <ArrowRight size={18} />
+          </button>
+        </form>
+
+        <div className="auth-footer">
+          Already have an account? <Link to="/login">Sign In</Link>
+        </div>
+      </div>
+    </div>
+  );
+}
