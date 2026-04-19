@@ -1,40 +1,58 @@
-# HealNow - Web3 Healthcare Platform
+<div align="center">
+  <img src="./frontend/public/favicon.svg" alt="HealNow Logo" width="120" />
+  
+  <h1>🏥 HealNow - Web3 Healthcare Platform</h1>
+  
+  <p><strong>A decentralized, trust-based healthcare and doctor-patient collaboration platform.</strong></p>
 
-HealNow is a decentralized healthcare and doctor-patient collaboration platform built on Web3 technologies. It leverages blockchain for immutability and transparency while maintaining a seamless Web2-like user experience using managed wallets. 
+  <p>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/Solidity-e6e6e6?style=for-the-badge&logo=solidity&logoColor=black" alt="Solidity" />
+    <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white" alt="Ethereum" />
+    <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js" />
+  </p>
+</div>
 
-The platform features a social graph-based trust discovery system, secure consultation tracking, appointment management, and actionable analytics for healthcare providers.
+<br />
 
-## 🌟 Key Features
+HealNow leverages the immutability of blockchain technology while maintaining a seamless Web2-like experience using managed decentralized wallets. It introduces a powerful social graph-based trust system, dynamic analytics, and a seamless smart referral network.
 
-### For Patients:
-- **Trust-Based Doctor Discovery**: Find doctors trusted by your social network (Contact Access).
-- **Appointment Booking**: View available slots and book appointments seamlessly.
-- **My Appointments**: Manage and cancel pending/confirmed appointments.
-- **Medical Dashboard**: Access your consultation history and upcoming appointments.
+---
 
-### For Doctors:
-- **Dynamic Analytics Dashboard**: Real-time insights, patient trends, disease distribution, and peak hours powered by Chart.js.
-- **Consultation Management**: Create patient consultations, auto-registering patients on-the-fly.
-- **Appointment Manager**: Approve, reject, or complete appointment requests.
-- **PDF Reports**: Export consultation history to PDF with a single click.
-- **Doctor Collaboration & Referrals**: Refer critical cases to specialists with priority tracking.
+## ✨ Premium Features
 
-### Web3 & Security:
-- **Decentralized Identities (DID)**: Managed Ethereum wallets created automatically on registration.
-- **Smart Contracts**: Doctor Registry, Medical Records, Referral System, and Review System (deployed on Hardhat/Polygon Amoy).
-- **Secure Authentication**: JWT-based authentication combined with managed private keys.
+### 🧑‍⚕️ For Doctors
+| Feature | Description |
+| :--- | :--- |
+| **📊 Dynamic Analytics** | Real-time insights, patient trends, disease distributions, and peak hour tracking powered by Chart.js. |
+| **📅 Appointment Manager** | Approve, reject, or complete patient appointment requests easily with interactive cards. |
+| **📋 Consultation Tracking** | Form-based consultation creation that auto-registers new patients seamlessly on the backend. |
+| **🤝 Smart Referrals** | Refer critical cases to specialist doctors with priority tagging (Critical, High, Medium, Low). |
+| **📄 PDF Generation** | One-click export of patient consultation history into formatted PDF reports using `jsPDF`. |
 
-## 💻 Technology Stack
+### 👨‍👩‍👧‍👦 For Patients
+| Feature | Description |
+| :--- | :--- |
+| **🔍 Trust-Based Discovery** | Find doctors via "Contact Access" — see if your trusted social contacts have visited a doctor. |
+| **🗓️ Seamless Booking** | View dynamic 30-minute time slots (9 AM to 5 PM) to book appointments instantly. |
+| **🩺 Medical Dashboard** | Securely view past diagnoses, consultation history, and manage upcoming appointments. |
 
-- **Frontend**: React, Vite, React Router, Chart.js, jsPDF, Vanilla CSS (Glassmorphism UI).
-- **Backend**: Node.js, Express, MongoDB (Memory Server for dev), Mongoose, JWT.
-- **Web3**: Ethers.js, Solidity, Hardhat.
+---
 
-## 🚀 Getting Started
+## 🔐 Web3 Architecture & Security
+
+- **Managed Decentralized Identities (DID):** Ethereum wallets are automatically generated for users upon registration, removing the friction of external wallet extensions like MetaMask.
+- **Smart Contracts:** Deployed on Hardhat (Polygon Amoy compatible) for Doctor Registry, Medical Records, Referral Systems, and Reviews.
+- **Robust Auth:** JWT-based authentication via Axios interceptors, securing both frontend routing and backend API logic.
+
+---
+
+## 🚀 Quick Setup & Installation
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/en/) (v16+)
-- [Git](https://git-scm.com/)
+Make sure you have [Node.js](https://nodejs.org/en/) (v16+) and Git installed.
 
 ### 1. Clone the repository
 ```bash
@@ -42,59 +60,64 @@ git clone https://github.com/manikant1446/HealNow.git
 cd HealNow
 ```
 
-### 2. Setup the Backend
+### 2. Start the Backend
+The backend utilizes an in-memory MongoDB server for testing out-of-the-box (no external database setup required!).
 ```bash
 cd backend
 npm install
 npm start
 ```
-*Note: The backend runs on `http://localhost:5001`. It uses an in-memory MongoDB server for testing. Demo data (3 patients, 2 doctors) is automatically seeded.*
+> **Note:** Runs on `http://localhost:5001`. The database will automatically seed demo patients and doctors.
 
-### 3. Setup the Frontend
+### 3. Start the Frontend
 Open a new terminal window:
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-*The frontend will run on `http://localhost:5174`.*
+> **Note:** Runs on `http://localhost:5174`. Uses Vite for ultra-fast HMR and build times.
 
-## 🧪 Demo Credentials
+---
 
-The backend automatically seeds these users so you can test the platform immediately:
+## 🧪 Demo Accounts
 
-**Password for all accounts:** `password123`
+The application automatically seeds the following accounts for immediate testing. 
 
-**Doctors:**
-- `doctor@healnow.com` (Sarah Johnson - Cardiology)
-- `neurologist@healnow.com` (Michael Chen - Neurology)
+🔑 **Password for all accounts:** `password123`
 
-**Patients:**
-- `patient@healnow.com` (Alex Thompson)
-- `priya@healnow.com` (Priya Sharma)
-- `rahul@healnow.com` (Rahul Verma)
+| Role | Name | Specialty | Email |
+| :--- | :--- | :--- | :--- |
+| **Doctor** | Dr. Sarah Johnson | Cardiology | `doctor@healnow.com` |
+| **Doctor** | Dr. Michael Chen | Neurology | `neurologist@healnow.com` |
+| **Patient** | Alex Thompson | - | `patient@healnow.com` |
+| **Patient** | Priya Sharma | - | `priya@healnow.com` |
+| **Patient** | Rahul Verma | - | `rahul@healnow.com` |
 
-## 📁 Project Structure
+---
 
-```
+## 📂 Project Structure
+
+```text
 HealNow/
 ├── backend/
-│   ├── models/        # Mongoose schema (User, Consultation, Appointment, Contact, Referral)
-│   ├── routes/        # Express API endpoints
-│   ├── middleware/    # JWT Auth & Role protection
-│   └── server.js      # Server entry point
+│   ├── config/        # Database & Seed Scripts
+│   ├── middleware/    # JWT Auth & Roles (doctorOnly, patientOnly)
+│   ├── models/        # Mongoose schemas (User, Appointment, Consultation)
+│   └── routes/        # Express REST API endpoints
 ├── frontend/
 │   ├── src/
-│   │   ├── components/  # React components organized by role (doctor/patient/common)
-│   │   ├── contexts/    # Global state (AuthContext)
-│   │   └── index.css    # Global styling & Design System
+│   │   ├── components/  # React components (split by role & common)
+│   │   ├── contexts/    # AuthContext with Axios interceptors
+│   │   └── index.css    # Custom CSS Design System (Glassmorphism, animations)
 │   └── vite.config.js
 └── blockchain/
-    ├── contracts/     # Solidity Smart Contracts
-    └── scripts/       # Deployment scripts
+    ├── contracts/     # Solidity Smart Contracts (.sol)
+    └── scripts/       # Hardhat deployment scripts
 ```
 
-## 🛡️ Future Enhancements
-- Transition to a persistent MongoDB Atlas database.
-- Deploy smart contracts to Polygon Mainnet.
-- Integrate IPFS via Pinata for decentralized diagnostic report storage.
+---
+
+<div align="center">
+  <i>Built with ❤️ for a decentralized healthcare future.</i>
+</div>
