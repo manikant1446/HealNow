@@ -4,7 +4,6 @@
   <h1>🏥 HealNow - Web3 Healthcare Platform</h1>
   
   <p><strong>A decentralized, trust-based healthcare and doctor-patient collaboration platform.</strong></p>
-
   <p>
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
     <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
@@ -17,7 +16,7 @@
 
 <br />
 
-HealNow leverages the immutability of blockchain technology while maintaining a seamless Web2-like experience using managed decentralized wallets. It introduces a powerful social graph-based trust system, dynamic analytics, and a seamless smart referral network.
+HealNow leverages the immutability of blockchain technology while maintaining a seamless Web2-like experience using managed decentralized wallets. It introduces a powerful social graph-based trust system for transparent healthcare collaboration among patients, doctors, and medical specialists.
 
 ---
 
@@ -49,34 +48,13 @@ HealNow leverages the immutability of blockchain technology while maintaining a 
 
 ---
 
-## 🚀 Quick Setup & Installation
+## 🚀 Quick Start
 
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/en/) (v16+) and Git installed.
+Welcome to HealNow! We are committed to revolutionizing healthcare with secure, decentralized, and user-friendly technology.
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/manikant1446/HealNow.git
-cd HealNow
-```
+You can now access HealNow instantly at:
 
-### 2. Start the Backend
-The backend utilizes an in-memory MongoDB server for testing out-of-the-box (no external database setup required!).
-```bash
-cd backend
-npm install
-npm start
-```
-> **Note:** Runs on `http://localhost:5001`. The database will automatically seed demo patients and doctors.
-
-### 3. Start the Frontend
-Open a new terminal window:
-```bash
-cd frontend
-npm install
-npm run dev
-```
-> **Note:** Runs on `http://localhost:5174`. Uses Vite for ultra-fast HMR and build times.
+👉 [https://heal-now-rust.vercel.app/](https://heal-now-rust.vercel.app/)
 
 ---
 
